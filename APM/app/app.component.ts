@@ -1,5 +1,9 @@
 import { Component } from 'angular2/core';
-import {ProductListComponent } from './products/product-list.component';
+import { ProductListComponent } from './products/product-list.component';
+import { ProductService } from './products/product.service';
+import { HTTP_PROVIDERS } from 'angular2/http';
+import 'rxjs/Rx';
+
 @Component({
     selector: 'pm-app',
     template: `
@@ -9,7 +13,8 @@ import {ProductListComponent } from './products/product-list.component';
         <pm-products></pm-products>
     </div>
     `,
-    directives: [ProductListComponent]
+    directives: [ProductListComponent],
+    providers: [ProductService, HTTP_PROVIDERS]
 })
 export class AppComponent {
     pageTitle: string = 'Learning AngularJS 2 like a pro';
